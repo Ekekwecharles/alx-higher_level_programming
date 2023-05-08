@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file="$PYFILE"
+
+if [ -f "$file" ]; then
+	python3 "$file"
+else
+	echo "$file not found"
+fi
