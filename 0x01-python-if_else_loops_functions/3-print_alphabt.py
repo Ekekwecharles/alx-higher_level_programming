@@ -3,4 +3,4 @@ for i in range(97, 123):
     if i == 101 or i == 113:
         continue
     str(i)
-    print(f"{i:c}", end = "")
+    print("{:c}".format(i), end="")
