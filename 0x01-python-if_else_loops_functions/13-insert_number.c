@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * insert - adds a number to a sorted array
+ * insert_node - adds a number to a sorted array
  * @head: head of node
  * @number: number to add
  * Return: addressof the added node
@@ -10,25 +10,28 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *node = *head, *new, *next;
+	listint_t *node = *head, *new, *prev;
 
-	if (!head || !*head)
+	if (!head)
 		return (NULL);
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
+	new->n = number;
+	new->next = NULL;
 
 	while (node)
 	{
-		if (node->n < number && node->next->n > number)
+		if (number > node->n)
 		{
-			next = node->next;
-			node->next = new;
-			new->n = number;
-			new->next = next;
+			prev = node;
+			node = node->next;
+			continue;
 		}
-		node = node->next;
+		new->next = prev->next;
+		prev->next = new;
+		return (new);
 	}
 
 	return (new);
