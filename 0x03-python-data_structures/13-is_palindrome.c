@@ -42,7 +42,7 @@ int is_palindrome(listint_t **head)
 	}
 	half_len = list_len / 2;
 	j = list_len - 1;
-	while (i < half_len)
+	while (i < half_len - 1)
 	{
 		if (get_nodeint_at_index(*head, i)->n != get_nodeint_at_index(*head, j)->n)
 			return (0);
