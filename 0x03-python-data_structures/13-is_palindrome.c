@@ -40,9 +40,10 @@ int is_palindrome(listint_t **head)
 		list_len++;
 		node = node->next;
 	}
-	half_len = list_len / 2;
+	/* Use ceiling division for odd lengths */
+	half_len = (list_len + 1) / 2;
 	j = list_len - 1;
-	while (i < half_len - 1)
+	while (i < half_len)
 	{
 		if (get_nodeint_at_index(*head, i)->n != get_nodeint_at_index(*head, j)->n)
 			return (0);
