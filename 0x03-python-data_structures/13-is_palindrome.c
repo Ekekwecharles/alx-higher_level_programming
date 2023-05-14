@@ -33,8 +33,9 @@ int is_palindrome(listint_t **head)
 	int list_len = 0, half_len, i = 0, j = 0;
 	listint_t *node = *head;
 
-	if (!*head)
-		return (0);
+	/* Empty list or single node list is cnsiderted a palindrome */
+	if (*head == NULL || (*head)->next = NULL)
+		return (1);
 	while (node != NULL)
 	{
 		list_len++;
