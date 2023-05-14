@@ -34,7 +34,7 @@ int is_palindrome(listint_t **head)
 	listint_t *node = *head;
 
 	/* Empty list or single node list is cnsiderted a palindrome */
-	if (*head == NULL || (*head)->next = NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 	while (node != NULL)
 	{
