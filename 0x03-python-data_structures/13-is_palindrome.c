@@ -1,27 +1,25 @@
 #include "lists.h"
 
-/**
- * get_nodeint_at_index - Locates a given node of
- *                        a listint_t linked list.
- * @head: A pointer to the head of the listint_t list.
- * @index: The index of the node to locate - index start at 0.
- *
- * Return: If the node doesn't exist - NULL.
- *         Otherwise - node found at index
+/**reverse_list - reverses the list
+ * @head: list to reverse
+ * Return: reversed list
  */
-
-listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
+listint_t *reverse_list(listint_t *head)
 {
-	unsigned int i;
+	listint_t *prev = NULL;
+	listint_t *current = head;
+	listint_t *next = NULL;
 
-	for (i = 0; i < index; i++)
+	while (current != NULL)
 	{
-		if (head == NULL)
-			return (NULL);
-		head = head->next;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
-	return (head);
+	return (prev);
 }
+
 
 /**
  * is_palindrome - checks if a list is a palindrome
@@ -30,27 +28,52 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
  */
 int is_palindrome(listint_t **head)
 {
-	int list_len = 0, half_len, i = 0, j = 0;
-	listint_t *node = *head;
-
-	/* Empty list or single node list is cnsiderted a palindrome */
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (node != NULL)
-	{
-		list_len++;
-		node = node->next;
-	}
-	/* Use ceiling division for odd lengths */
-	half_len = (list_len + 1) / 2;
-	j = list_len - 1;
-	while (i < half_len)
-	{
-		if (get_nodeint_at_index(*head, i)->n != get_nodeint_at_index(*head, j)->n)
-			return (0);
-		i++;
-		j--;
-	}
-	return (1);
-}
+	listint_t *slow = *head;
+	listint_t *fast = *head;
+	listint_t *prev_slow = *head;
+	listint_t *mid_node = NULL;
+	listint_t *second_half = NULL;
+	int result = 1;
 
+	while (fast != NULL && fast->next != NULL)
+	{
+		fast = fast->next->next;
+		prev_slow = slow;
+		slow = slow->next;
+	}
+
+	if (fast != NULL)
+	{
+		mid_node = slow;
+		slow = slow->next;
+	}
+
+	second_half = reverse_list(slow);
+	prev_slow->next = NULL;
+
+	listint_t *temp1 = *head;
+	listint_t *temp2 = second_half;
+
+	while (temp1 != NULL && temp2 != NULL)
+	{
+		if (temp1->n != temp2->n)
+		{
+			result = 0;
+			break;
+		}
+		temp1 = temp1->next;
+		temp2 = temp2->next;
+	}
+
+	second_half = reverse_list(second_half);
+	prev_slow->next = second_half;
+
+	if (mid_node != NULL)
+	{
+		prev_slow->next = mid_node;
+		mid_node->next = second_half;
+	}
+	return result;
+}
