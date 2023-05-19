@@ -3,13 +3,14 @@
 
 void print_python_bytes(PyObject *p);
 /**
- * print_python_list_info - prints info about a python list
+ * print_python_list - prints info about a python list
  * @p: list object
  */
 void print_python_list(PyObject *p)
 {
 	int i;
 	PyListObject *pp;
+
 	pp = (PyListObject *)p;
 
 	printf("[*] Python list info");
@@ -32,6 +33,7 @@ void print_python_bytes(PyObject *p)
 {
 	unsigned char j, size;
 	PyBytesObject *pp;
+
 	pp = (PyBytesObject *)p;
 
 	printf("[.] bytes object info\n");
@@ -40,7 +42,7 @@ void print_python_bytes(PyObject *p)
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);	
+	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
 	printf("  trying string: %s\n", pp->ob_sval);
 
 	if (((PyVarObject *)p)->ob_size > 10)
