@@ -1,0 +1,116 @@
+===========================================
+Test cases for the ``0-add_integer`` module
+===========================================
+
+The ``0-add_integer`` module adds two integers -> Accepts both int and float values
+add_integer(a, b=98)
+
+Numbers
+=======
+
+``0-add_integer`` returns the sum of its arguments. 
+
+::
+Positive numbers
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(1, 2)
+	3
+
+::
+Negative and positive
+	>>> add_integer(6, -9)
+	-3
+
+::
+Floating point values
+	>>> add_integer(1.0 , 3.0)
+	4
+
+::
+Checks if float gets converted to int
+	>>> add_integer(1.5, 0.5)
+	1
+
+::
+Empty values
+	>>> add_integer()
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+::
+Single value
+	>>> add_integer(2)
+	100
+
+::
+Passing more than two values
+	>>> add_integer(1, 2, 3)
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Non-Numbers
+===========
+
+::
+Passing list as an argument
+	>>> add_integer(123, [])
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+::
+Passing a tuple as an argument
+	>>> add_integer((1, 1), 2)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+::
+Passing None
+        >>> add_integer(None)
+        Traceback (most recent call last):
+        ...
+        TypeError: a must be an integer
+
+::
+Passing a character
+	>>> add_integer('A', 2)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+::
+Passing a String
+	>>> add_integer(1, "Alx")
+        Traceback (most recent call last):
+        ...
+        TypeError: b must be an integer
+
+::
+Passing infinity value
+	>>> add_integer(float('inf'), 2)
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+::
+	>>> add_integer(1, float('NaN'))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
+::
+Passing Bool values
+        >>> add_integer(True)
+        Traceback (most recent call last):
+        ...
+        TypeError: a must be an integer
+
+::
+passing a number as string
+	>>> add_integer("2", 1)
+        Traceback (most recent call last):
+        ...
+        TypeError: a must be an integer

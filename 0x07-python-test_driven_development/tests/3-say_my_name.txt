@@ -1,0 +1,64 @@
+==============================================
+Test cases for the ``3-say_my_name.py`` module
+==============================================
+
+The ``3-say_my_name.py`` module prints the full name passed to it
+say_my_name(first_name, last_name="")
+
+Strings
+=======
+
+``say_my_name()`` prints the full name
+
+::
+Passing full name
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("John", "Cena")
+My name is John Cena
+
+::
+Passing more more names
+>>> say_my_name("John Simon", "Cena")
+My name is John Simon Cena
+
+::
+passing a single name
+>>> say_my_name("John")
+My name is John 
+
+Non-Strings
+===========
+
+::
+Passing a number
+>>> say_my_name(2, "Cena")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+::
+Passing more than list of stings
+>>> say_my_name("You", ["Can't", "see", "me"])
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+::
+>>> say_my_name({"John": 6, "Cena": 23}, "simon")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+::
+Passing None
+>>> say_my_name(None)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+::
+Passing no args
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
