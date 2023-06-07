@@ -105,6 +105,12 @@ Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 ::
+passing empty list of lists
+>>> matrix = [[]]
+>>> print(matrix_divided(matrix, 6))
+[[]]
+
+::
 Missing up numbers and strings in the matrix
 >>> matrix_divided([[1, 2, 3], [5, 6, "7"]], 25)
 Traceback (most recent call last):
