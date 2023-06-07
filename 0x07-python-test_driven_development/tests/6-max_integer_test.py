@@ -31,6 +31,11 @@ class TestMaxInteger(unittest.TestCase):
         max_at_end = [10, 9, 8, 7, 6, 12]
         self.assertEqual(max_integer(max_at_end), 12)
 
+    def test_max_in_mid(self):
+        """Test list with max value in the middle"""
+        max_in_mid = [10, 10, 18, 10, 10]
+        self.assertEqual(max_integer(max_in_mid), 18)
+
     def test_empty_list(self):
         """Test empty List"""
         list = []
