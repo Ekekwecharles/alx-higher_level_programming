@@ -54,7 +54,7 @@ try:
     N = int(sys.argv[1])
 except ValueError:
     print("N must be a number")
-    sus.exit(1)
+    sys.exit(1)
 
 solutions = solve_nqueens(N)
 
