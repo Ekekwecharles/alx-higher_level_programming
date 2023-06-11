@@ -5,6 +5,30 @@ Test cases for the ``7-base_geometry.py`` module
 This module defines a class with a function that validated the value parameter passed to it
 def integer_validator(self, name, value)
 
+::
+Checking for module docstring:
+>>> m = __import__("7-base_geometry").__doc__
+>>> len(m) > 1
+True
+
+::
+Checking for class docstring:
+>>> c = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> len(c) > 1
+True
+
+::
+Checking for area method docstring:
+>>> mod1 = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(mod1) > 1
+True
+
+::
+Checking for integer_validator method docstring
+>>> mod2 = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(mod2) > 1
+True
+
 
 ::
 Calling the area method
