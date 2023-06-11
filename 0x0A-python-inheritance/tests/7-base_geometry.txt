@@ -39,3 +39,45 @@ Passing value less than 0
 Traceback (most recent call last):
 ...
 ValueError: name must be greater than 0
+
+::
+Passing extra arg for area()
+>>> bg.area(1)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 2 were given
+
+::
+Passing a bool value
+>>> bg.integer_validator("name", True)
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+::
+Passing a float
+>>> bg.integer_validator("name", 1.4)
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+::
+Passng an empty value to integer_validator
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+::
+Passng only one value to integer_validator
+>>> bg.integer_validator("name")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+::
+Passng more the two value to integer_validator
+>>> bg.integer_validator("name", 1, 2)
+Traceback (most recent call last):
+...
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
