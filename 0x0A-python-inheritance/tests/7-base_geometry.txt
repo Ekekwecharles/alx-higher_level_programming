@@ -1,0 +1,41 @@
+================================================
+Test cases for the ``7-base_geometry.py`` module
+================================================
+
+This module defines a class with a function that validated the value parameter passed to it
+def integer_validator(self, name, value)
+
+
+::
+Calling the area method
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+::
+Passing an int
+>>> bg.integer_validator("name", 10)
+
+::
+Passing a string as value
+>>> bg.integer_validator("name", "ten")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+::
+Passing 0 as value
+>>> bg.integer_validator("name", 0)
+Traceback (most recent call last):
+...
+ValueError: name must be greater than 0
+
+::
+Passing value less than 0
+>>> bg.integer_validator("name", -1)
+Traceback (most recent call last):
+...
+ValueError: name must be greater than 0
