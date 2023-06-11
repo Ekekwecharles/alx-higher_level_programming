@@ -81,3 +81,52 @@ Passng more the two value to integer_validator
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+::
+Passing a tuple
+>>> bg.integer_validator("tuple", (1, 2))
+Traceback (most recent call last):
+...
+TypeError: tuple must be an integer
+
+::
+Passing a list
+>>> bg.integer_validator("list", [1, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: list must be an integer
+
+::
+Passing a dictionary
+>>> bg.integer_validator("dict", {"key": "value"})
+Traceback (most recent call last):
+...    
+TypeError: dict must be an integer
+
+::
+Passing a set
+>>> bg.integer_validator("set", {"hello", "world"})
+Traceback (most recent call last):
+...
+TypeError: set must be an integer
+
+::
+passing a frozenset()
+>>> bg.integer_validator("frozenset", frozenset(["hello", "world"]))
+Traceback (most recent call last):
+...
+TypeError: frozenset must be an integer
+
+::
+Passing a bytes object
+>>> bg.integer_validator("bytes", b"bytes")
+Traceback (most recent call last):
+...
+TypeError: bytes must be an integer
+
+::
+Passing a bytearray
+>>> bg.integer_validator("bytearrays", bytearray(b"bytes"))
+Traceback (most recent call last):
+...
+TypeError: bytearrays must be an integer
