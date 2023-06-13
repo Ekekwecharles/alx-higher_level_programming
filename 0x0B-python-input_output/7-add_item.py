@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module that adds arguments to a python list"""
+
+
 import sys
 
 if __name__ == "__main__":
