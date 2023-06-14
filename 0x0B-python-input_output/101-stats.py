@@ -17,17 +17,18 @@ try:
         # Update metrics
         total_size += file_size
         status_codes[status_code] += 1
-        line_count += 1
 
         # print statistics every 10 lines
         if line_count % 10 == 0:
             print("File size:", total_size)
             for code in sorted(status_codes.keys()):
                 if status_codes[code] > 0:
-                    print(f"{code}:", status_codes[code])
+                    print(f"{code}: {status_codes[code]}")
+
+        line_count += 1
 except KeyboardInterrupt:
     print("File size:", total_size)
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
-            print(f"{code}:", status_codes[code])
+            print(f"{code}: {status_codes[code]}")
     raise
