@@ -5,7 +5,7 @@ import sys
 
 total_size = 0
 status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-line_count = 0
+line_count = 1
 
 try:
     for line in sys.stdin:
@@ -31,5 +31,3 @@ except KeyboardInterrupt:
         if status_codes[code] > 0:
             print(f"{code}:", status_codes[code])
     raise
-except Exception:
-    pass
